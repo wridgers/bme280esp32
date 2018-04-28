@@ -49,6 +49,14 @@ void setup() {
     }
   }
 
+  bme.setSampling(
+    bme.MODE_FORCED,
+    bme.SAMPLING_X1,
+    bme.SAMPLING_X1,
+    bme.SAMPLING_X1,
+    bme.FILTER_OFF
+  );
+
   setup_network();
 
   if (!MDNS.begin("kitchen")) {
@@ -86,4 +94,7 @@ void loop() {
   if (WiFi.status() != WL_CONNECTED){
     setup_network();
   }
+
+  bme.takeForcedMeasurement();
+  delay(60000);
 }
