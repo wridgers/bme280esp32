@@ -2,6 +2,10 @@
 
 A few projects for doing neat things with the ESP32 and BME280 using [BME280-I2C-ESP32](https://github.com/Takatsuki0204/BME280-I2C-ESP32).
 
+## A note on accuracy
+
+Initially the values I got didn't seen accurate. The solution was to read the datasheet[1] which recommends a certain configurations of sample/poll rate for different applications. In particular, 3.5.1, for weather monitoring. Excessive polling causes excess heat, which leads to inaccurate temperature readings.
+
 ## Projects
 
 ### HTTPServer
@@ -18,3 +22,7 @@ ESP32 | BME280
 GND | GND
 GPIO27 | SCL
 GPIO26 | SDA
+
+# References
+
+1. [BME280 Datasheet](https://ae-bst.resource.bosch.com/media/_tech/media/datasheets/BST-BME280_DS001-12.pdf)
