@@ -4,7 +4,7 @@ A few projects for doing neat things with the ESP32 and BME280 using [BME280-I2C
 
 ## A note on accuracy
 
-Initially the values I got didn't seen accurate. The solution was to read the datasheet[1] which recommends certain configurations of sample/poll rate for different applications. In particular, 3.5.1, for weather monitoring. Excessive polling causes excess heat, which leads to inaccurate temperature readings.
+Initially the values I got didn't seem accurate. The solution was to read the datasheet[1] which recommends certain configurations of sample/poll rate for different applications. In particular, 3.5.1, for weather monitoring. Excessive polling causes excess heat, which leads to inaccurate temperature readings.
 
 ## Projects
 
