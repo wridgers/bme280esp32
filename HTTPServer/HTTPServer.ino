@@ -29,17 +29,14 @@ void setup_network() {
   WiFi.disconnect(true);
 
   WiFi.begin(WIFI_SSID, WIFI_PASS);
-  Serial.print("Connecting to WiFi network ");
-  Serial.print(WIFI_SSID);
-  Serial.print(" ");
+  Serial.printf("Connecting to WiFi network %s ", WIFI_SSID);
 
   while (WiFi.status() != WL_CONNECTED) {
     Serial.print(".");
     delay(1000);
   }
 
-  Serial.println(" Connected!");
-  Serial.print("IP Address: ");
+  Serial.print(" Connected!\nIP Address: ");
   Serial.println(WiFi.localIP());
 
   digitalWrite(LED_PIN, HIGH);
@@ -118,10 +115,8 @@ void loop() {
   int response_code = client.POST(json);
 
   if (response_code > 0) {
-    String response = client.getString();  
-    Serial.print(response_code);
-    Serial.print(" ");
-    Serial.println(response);
+    String response = client.getString();
+    Serial.printf("%d %s\n", response_code, response.c_str());
   } else {
     Serial.println("Failed to send POST");
   }
